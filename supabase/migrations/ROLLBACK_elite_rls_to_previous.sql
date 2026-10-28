@@ -1,0 +1,32 @@
+-- Restore pre-patch RLS policies from audited 29-policy inventory.
+-- ONLY if no intervening security changes were made.
+BEGIN;
+DROP POLICY IF EXISTS loads_read ON public.loads;
+CREATE POLICY loads_read ON public.loads FOR SELECT TO authenticated USING (public.is_staff());
+DROP POLICY IF EXISTS loads_update ON public.loads;
+CREATE POLICY loads_update ON public.loads FOR UPDATE TO authenticated USING (public.is_staff()) WITH CHECK (public.is_staff());
+DROP POLICY IF EXISTS assignments_read ON public.load_assignments;
+CREATE POLICY assignments_read ON public.load_assignments FOR SELECT TO authenticated USING (public.is_staff());
+DROP POLICY IF EXISTS stops_read ON public.stops;
+CREATE POLICY stops_read ON public.stops FOR SELECT TO authenticated USING (public.is_staff());
+DROP POLICY IF EXISTS stops_insert ON public.stops;
+CREATE POLICY stops_insert ON public.stops FOR INSERT TO authenticated WITH CHECK (public.is_staff());
+DROP POLICY IF EXISTS stops_update ON public.stops;
+CREATE POLICY stops_update ON public.stops FOR UPDATE TO authenticated USING (public.is_staff()) WITH CHECK (public.is_staff());
+DROP POLICY IF EXISTS stops_delete ON public.stops;
+CREATE POLICY stops_delete ON public.stops FOR DELETE TO authenticated USING (public.is_staff());
+DROP POLICY IF EXISTS tasks_read ON public.tasks;
+CREATE POLICY tasks_read ON public.tasks FOR SELECT TO authenticated USING (public.is_staff());
+DROP POLICY IF EXISTS tasks_insert ON public.tasks;
+CREATE POLICY tasks_insert ON public.tasks FOR INSERT TO authenticated WITH CHECK (public.is_staff());
+DROP POLICY IF EXISTS tasks_update ON public.tasks;
+CREATE POLICY tasks_update ON public.tasks FOR UPDATE TO authenticated USING (public.is_staff()) WITH CHECK (public.is_staff());
+DROP POLICY IF EXISTS tasks_delete ON public.tasks;
+CREATE POLICY tasks_delete ON public.tasks FOR DELETE TO authenticated USING (public.is_staff());
+DROP POLICY IF EXISTS notes_read ON public.load_notes;
+CREATE POLICY notes_read ON public.load_notes FOR SELECT TO authenticated USING (public.is_staff());
+DROP POLICY IF EXISTS notes_insert ON public.load_notes;
+CREATE POLICY notes_insert ON public.load_notes FOR INSERT TO authenticated WITH CHECK (public.is_staff());
+DROP POLICY IF EXISTS notes_update ON public.load_notes;
+CREATE POLICY notes_update ON public.load_notes FOR UPDATE TO authenticated USING (public.is_staff()) WITH CHECK (public.is_staff());
+COMMIT;
