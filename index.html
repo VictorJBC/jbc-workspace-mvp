@@ -1625,7 +1625,7 @@ if(jbcLiveNav&&!jbcLiveNav.querySelector('[data-p="live"]')) {
 const jbcRenderBeforeOriginalViews = render;
 render = function(...args) {
   const route = location.hash.slice(1);
-  if (window.jbcOriginalViews && (route === 'shipments' || route === 'loads' || route.startsWith('shipment/'))) {
+  if (window.jbcOriginalViews && (route === 'shipments' || route === 'loads' || route === 'shipment-new' || route.startsWith('shipment/'))) {
     window.jbcOriginalViews.render(route);
     return;
   }
