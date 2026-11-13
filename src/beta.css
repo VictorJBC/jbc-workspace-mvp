@@ -19,3 +19,34 @@
 /* Compact table without visibility group column */
 .task-columns,.taskrow{grid-template-columns:46px 170px minmax(180px,1fr) minmax(130px,200px) minmax(125px,160px)}
 @media(max-width:950px){.task-columns,.taskrow{grid-template-columns:40px 150px minmax(130px,1fr) 125px}.task-columns>span:nth-child(5),.taskrow>.taskmeta:last-child{display:none}.taskrow>.taskmeta:nth-last-child(2){display:block}}
+
+/* Denser task rows for high-volume workbench */
+.taskrow{min-height:38px;padding:5px 12px;gap:8px}
+.taskrow .btn{padding:4px 8px;min-height:28px}
+.taskrow .code{padding:6px 7px;min-height:29px}
+.taskrow .readonly-code{padding:6px 7px}
+.task-columns{padding:8px 12px}
+.grouphead{padding:8px 14px}
+.shipment-pill{padding:4px 7px}
+/* User Management */
+.user-stats{display:grid;grid-template-columns:repeat(3,minmax(130px,1fr));gap:12px}
+.user-stat{padding:16px;display:flex;flex-direction:column;gap:5px;margin:0}
+.user-stat b{font-size:26px}.user-stat span{color:#698093}
+.user-table-wrap{overflow-x:auto}.user-table{width:100%;border-collapse:collapse;text-align:left}
+.user-table th,.user-table td{padding:10px 13px;border-top:1px solid #e3ebef}
+.user-table th{font-size:11px;text-transform:uppercase;color:#59758a}
+.user-groups{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}
+.user-groups label{display:flex;align-items:center;gap:8px}
+.user-groups input,.user-disable input{width:auto}
+.user-disable{display:flex;align-items:center;gap:9px;margin-top:22px}
+@media(max-width:750px){.user-stats{grid-template-columns:1fr}.user-groups{grid-template-columns:1fr}}
+
+/* Patch: compact Shipment ID, wider Task/Note, hover full text, inline editing */
+.task-columns,.taskrow{grid-template-columns:40px 155px minmax(180px,2.5fr) minmax(160px,2.3fr) minmax(85px,.9fr) minmax(125px,1.15fr)}
+.tasktitle,.tasknote,.taskmeta,.shipment-pill{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.taskmeta{display:block}.shipment-pill{display:block;width:max-content;max-width:100%}
+.taskrow .inline-edit{cursor:text}.taskrow .inline-edit:hover{text-decoration:underline;text-decoration-style:dotted}
+.inline-input{width:100%;min-width:0;padding:5px 7px;font-size:12px;max-height:65px}
+.taskrow .tasknote{color:#4c6475}
+@media(max-width:950px){.task-columns,.taskrow{grid-template-columns:35px 120px minmax(145px,2fr) minmax(125px,1.5fr) minmax(85px,.8fr) minmax(110px,1fr)}.task-columns>span:nth-child(5),.taskrow>.taskmeta:last-child{display:block}}
+@media(max-width:750px){.card{overflow-x:auto}.task-columns,.taskrow{min-width:800px}}
