@@ -50,3 +50,25 @@
 .taskrow .tasknote{color:#4c6475}
 @media(max-width:950px){.task-columns,.taskrow{grid-template-columns:35px 120px minmax(145px,2fr) minmax(125px,1.5fr) minmax(85px,.8fr) minmax(110px,1fr)}.task-columns>span:nth-child(5),.taskrow>.taskmeta:last-child{display:block}}
 @media(max-width:750px){.card{overflow-x:auto}.task-columns,.taskrow{min-width:800px}}
+
+/* Beta patch: tracking and collapsible navigation */
+.task-columns,.taskrow{grid-template-columns:40px 155px minmax(180px,2.5fr) minmax(160px,2.3fr) minmax(85px,.9fr) minmax(125px,1.15fr) 62px}
+.tracking-cell{text-align:center;min-width:0}.tracking-link{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:7px;text-decoration:none;font-size:19px}.tracking-link:hover,.tracking-link:focus-visible{background:#d6e8f3;outline:2px solid #7da9be}.sidebar-collapsed .side{display:none}.sidebar-toggle{font-size:20px;line-height:1;padding:7px 12px}.user-recovery{margin-top:24px;padding-top:16px;border-top:1px solid #dce7ec}.user-recovery .btn{margin:3px 2px 3px 0}
+@media(max-width:950px){.task-columns,.taskrow{grid-template-columns:35px 120px minmax(145px,2fr) minmax(125px,1.5fr) minmax(85px,.8fr) minmax(110px,1fr) 48px}}
+@media(max-width:750px){.task-columns,.taskrow{min-width:850px}}
+
+/* Patch: owner column and adjustable column widths */
+.task-columns,.taskrow{grid-template-columns:40px 155px 280px 240px 115px 145px 135px 65px;min-width:max-content;width:max-content;min-width:100%;}
+.task-columns{user-select:none}.column-heading{position:relative;min-width:0;padding-right:12px;white-space:nowrap}.col-resize{position:absolute;right:-5px;top:-10px;bottom:-10px;width:12px;cursor:col-resize;touch-action:none;z-index:2}.col-resize:hover{background:#a6d0e280}.taskrow>*{min-width:0}.owner-cell{overflow:hidden}.owner-select{display:block;width:100%;min-width:0;max-width:100%;font-size:12px;text-overflow:ellipsis;white-space:nowrap;padding:6px 15px 6px 5px;border:1px solid #c9dbe4;border-radius:6px;background:transparent;cursor:pointer}.owner-cell>span{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.card{overflow-x:auto}.task-columns,.taskrow{gap:10px}.task-columns{padding-right:14px}
+@media(max-width:950px){.task-columns,.taskrow{grid-template-columns:40px 155px 280px 240px 115px 145px 135px 65px}.task-columns>span,.taskrow>*{display:block}}
+
+/* Patch 006: task audit and archive controls */
+.task-extra-actions{display:flex;flex-wrap:wrap;gap:8px;margin:15px 0}
+.task-extra-actions .btn{font-size:13px}
+.history-box{border:1px solid #d9e5eb;border-radius:9px;padding:12px;margin:14px 0;background:#f8fbfd}
+.history-scroll{overflow-x:auto;max-height:360px;overflow-y:auto;margin:10px 0}
+.history-table{border-collapse:collapse;width:100%;font-size:12px;min-width:440px}
+.history-table th,.history-table td{text-align:left;padding:8px;border-bottom:1px solid #dce7ed;vertical-align:top;overflow-wrap:anywhere}
+.history-table th{position:sticky;top:0;background:#eef5f8;color:#466477}
+.history-table td:first-child{min-width:185px}
+.history-box small{color:#647d8b}
